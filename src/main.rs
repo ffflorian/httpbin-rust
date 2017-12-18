@@ -1,14 +1,12 @@
 extern crate clap;
 extern crate futures;
 extern crate hyper;
-extern crate regex;
 extern crate tokio_core;
 
 use clap::{Arg, App};
 use futures::{Future, Stream};
 use hyper::{Client, Method, Request};
 use hyper::header::ContentLength;
-use regex::Regex;
 use std::io::{self, Write};
 use tokio_core::reactor::Core;
 
@@ -40,12 +38,10 @@ fn main() {
                     )
                     .get_matches();
 
-    let _fullpath = matches
-                        .value_of("path")
-                        .unwrap();
-    let path = Regex::new(r"^/")
+    let path = matches
+                    .value_of("path")
                     .unwrap()
-                    .replace_all(_fullpath, "");
+                    .trim_left_matches("/");
     println!("Using path: \"/{}\"", path);
 
     let method = matches
