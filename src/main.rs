@@ -14,8 +14,8 @@ use tokio_core::reactor::Core;
 
 fn main() {
     let matches = App::new("httpbin test tool")
-                    .version("1.0")
-                    .author("Florian Keller <florian.keller@wire.com>")
+                    .version("0.1.0")
+                    .author("Florian Keller <github@floriankeller.de>")
                     .about("test httpbin endpoints")
                     .arg(Arg::with_name("path")
                         .default_value("/ip")
