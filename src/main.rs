@@ -72,9 +72,22 @@ fn connect(uri: hyper::Uri, method: &str, data: String) {
     let client = Client::new(&core.handle());
 
     let work = match method.to_uppercase().as_str() {
-        "GET" => client.get(uri),  // Returns first future
+        "DELETE" => client.request(Request::new(Method::Delete, uri)),
+        "GET" => client.request(Request::new(Method::Get, uri)),
+        "PATCH" => {
+            let mut rq = Request::new(Method::Patch, uri);
+            rq.set_body(data.to_owned());
+            rq.headers_mut().set(ContentLength(data.len() as u64));
+            client.request(rq)
+        },
         "POST" => {
             let mut rq = Request::new(Method::Post, uri);
+            rq.set_body(data.to_owned());
+            rq.headers_mut().set(ContentLength(data.len() as u64));
+            client.request(rq)
+        },
+        "PUT" => {
+            let mut rq = Request::new(Method::Put, uri);
             rq.set_body(data.to_owned());
             rq.headers_mut().set(ContentLength(data.len() as u64));
             client.request(rq)
