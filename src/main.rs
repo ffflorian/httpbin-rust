@@ -41,7 +41,7 @@ fn main() {
     let path = matches
                     .value_of("path")
                     .unwrap()
-                    .trim_left_matches("/");
+                    .trim_left_matches('/');
     println!("Using path: \"/{}\"", path);
 
     let method = matches
@@ -60,10 +60,10 @@ fn main() {
                 .expect("Parse failed");
     println!("Using URI: \"{}\"", uri);
 
-    connect(uri, method, data);
+    connect(uri, method, &data);
 }
 
-fn connect(uri: hyper::Uri, method: &str, data: String) {
+fn connect(uri: hyper::Uri, method: &str, data: &str) {
     let mut core = Core::new().expect("Core initialization failed");
     let client = Client::new(&core.handle());
 

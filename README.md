@@ -2,6 +2,14 @@
 
 This is a simple tool to test the [httpbin](https://httpbin.org) endpoints.
 
+Missing features:
+
+* Basic Auth
+* Brotli (sending and receiving)
+* Deflate (sending and receiving)
+* Gzip (sending and receiving)
+* Images (sending and receiving)
+
 ```
 $ cargo run -- --help
 
