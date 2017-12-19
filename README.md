@@ -1,14 +1,22 @@
-## httpbin-rust
+# httpbin-rust
 
 This is a simple tool to test the [httpbin](https://httpbin.org) endpoints.
 
-Missing features:
+## Working features
+
+* Basic HTTP methods (GET, POST, DELETE, ...)
+* String data transfer
+* Custom path (e.g. <a href="http://httpbin.org/ip">http://httpbin.org<strong>/ip</strong></a>)
+
+## Missing features
 
 * Basic Auth
-* Brotli (sending and receiving)
-* Deflate (sending and receiving)
-* Gzip (sending and receiving)
-* Images (sending and receiving)
+* Brotli (sending / receiving)
+* Deflate (sending / receiving)
+* Gzip (sending / receiving)
+* Images (sending / receiving)
+
+## Usage
 
 ```
 $ cargo run -- --help
