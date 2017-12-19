@@ -1,13 +1,14 @@
 extern crate clap;
 extern crate futures;
 extern crate hyper;
+extern crate serde_json;
 extern crate tokio_core;
 
 use clap::{Arg, App};
 use futures::{Future, Stream};
 use hyper::{Client, Method, Request};
 use hyper::header::ContentLength;
-use std::io::{self, Write};
+use serde_json::Value;
 use tokio_core::reactor::Core;
 
 fn main() {
@@ -92,14 +93,15 @@ fn connect(uri: hyper::Uri, method: &str, data: &str) {
     }
     .and_then(|res| {  // If the future was successful, returns second future
         println!("Response status: {}", res.status());
-        println!("Response:");
 
-        res
-            .body() // Returns a stream of chunks (byte values)
-            .for_each(|chunk| {
-                io::stdout()
-                    .write_all(&chunk)
-                    .map_err(From::from)
+        res.body()  // Returns a stream of chunks (byte values)
+            .concat2()
+            .and_then(|body| {
+                let result = String::from_utf8(body.to_vec()).unwrap();
+                println!("Response: {}", result);
+                let v: Value = serde_json::from_str(&result).expect("Failed to deserialize");
+                println!("My origin was {} and the Host was {}.", v["origin"], v["headers"]["Host"]);
+                Ok(())
             })
     });
 
