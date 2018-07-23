@@ -1,4 +1,4 @@
-# httpbin-rust
+# httpbin-rust [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&identifier=114666620)](https://dependabot.com)
 
 This is a simple tool to test the [httpbin](https://httpbin.org) endpoints.
 
