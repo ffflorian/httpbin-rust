@@ -1,6 +1,6 @@
-workflow "Test projects" {
+workflow "Test" {
   on = "push"
-  resolves = "Test all projects"
+  resolves = "Test the project"
 }
 
 action "Don't skip CI" {
@@ -8,7 +8,7 @@ action "Don't skip CI" {
   args = "^(?:(?!\\[(ci skip|skip ci)\\]).)*$"
 }
 
-action "Test all projects" {
+action "Test the project" {
   uses = "./.github/actions/rust-test"
   needs = "Don't skip CI"
 }

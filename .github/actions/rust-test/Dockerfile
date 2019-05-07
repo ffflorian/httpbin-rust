@@ -10,7 +10,5 @@ LABEL com.github.actions.description="cds into the dirs and runs the given comma
 LABEL com.github.actions.icon="package"
 LABEL com.github.actions.color="yellow"
 
-COPY "entrypoint.sh" "/entrypoint.sh"
-
 RUN "cargo build --verbose"
 RUN "cargo test --verbose"
