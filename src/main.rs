@@ -42,7 +42,7 @@ fn main() {
     let path = matches
                     .value_of("path")
                     .unwrap()
-                    .trim_left_matches('/');
+                    .trim_start_matches('/');
     println!("Using path: \"/{}\"", path);
 
     let method = matches
