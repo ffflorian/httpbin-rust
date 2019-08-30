@@ -9,8 +9,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v1
       - name: Build and test
-        uses: rust:slim
-        args: |
+        run: |
           cargo build --verbose
           cargo test --verbose
         if: |
