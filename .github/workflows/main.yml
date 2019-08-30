@@ -1,0 +1,17 @@
+name: Build and test
+
+on: [push, pull_request]
+
+jobs:
+  build_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
+      - name: Build and test
+        run: |
+          cargo build --verbose
+          cargo test --verbose
+        if: |
+          contains(github.event.commits[0].message, '[skip ci]') == false &&
+          contains(github.event.commits[0].message, '[ci skip]') == false
