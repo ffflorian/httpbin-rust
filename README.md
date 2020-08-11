@@ -22,7 +22,7 @@ This is a simple tool to test the [httpbin](https://httpbin.org) endpoints.
 $ cargo run -- --help
 
 httpbin test tool 0.1.0
-Florian Keller <git@ffflorian.de>
+Florian Imdahl <git@ffflorian.de>
 test httpbin endpoints
 
 USAGE:
