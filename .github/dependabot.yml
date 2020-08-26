@@ -1,6 +1,6 @@
 version: 2
 updates:
-  - package-ecosystem: npm
+  - package-ecosystem: cargo
     directory: '/'
     schedule:
       interval: daily
@@ -9,9 +9,3 @@ updates:
     open-pull-requests-limit: 99
     assignees:
       - ffflorian
-    versioning-strategy: increase
-    ignore:
-      - dependency-name: '@types/node'
-        versions:
-          - '>= 13.a'
-          - '< 14'
