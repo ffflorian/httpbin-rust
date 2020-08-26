@@ -1,4 +1,4 @@
-# httpbin-rust [![Build Status](https://action-badges.now.sh/ffflorian/httpbin-rust)](https://github.com/ffflorian/httpbin-rust/actions/) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&identifier=114666620)](https://dependabot.com)
+# httpbin-rust [![Build Status](https://action-badges.now.sh/ffflorian/httpbin-rust)](https://github.com/ffflorian/httpbin-rust/actions/)
 
 This is a simple tool to test the [httpbin](https://httpbin.org) endpoints.
 
