@@ -4,7 +4,7 @@ version = "0.1.0"
 authors = ["Florian Imdahl <git@ffflorian.de>"]
 
 [dependencies]
-clap = "2.29"
+clap = "4.0"
 futures = "0.1"
 hyper = "0.11"
 serde_json = "1.0"
